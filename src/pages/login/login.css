@@ -32,4 +32,10 @@ form {
 
 .hero {
   width: 100%;
+  background-image: url(../../assets/hero-section.jpg);
+}
+
+img {
+  height: 20px;
+  width: 20px;
 }
