@@ -1,5 +1,13 @@
 import React from "react";
 import "./login.css";
+import facebook from "../../assets/facebook.png";
+import instagram from "../../assets/instagram.png";
+import twitter from "../../assets/twitter.png";
+import linkedin from "../../assets/linkedin.png";
+import youtube from "../../assets/youtube.png";
+import telephone from "../../assets/telephone.png";
+import pin from "../../assets/pin.png";
+import mail from "../../assets/mail.png";
 
 export default function Login() {
   return (
@@ -44,18 +52,18 @@ export default function Login() {
           <div>
             <h2>Get in Touch with us!</h2>
             <div>
-              <img />
+              <img src={pin} />
               <p>
                 2nd Floor, Tridav Complex, above Rathi X ray & Sonography
                 Clinic, Udhana Darwaja Surat, Gujarat 395002
               </p>
             </div>
             <div>
-              <img />
+              <img src={mail} />
               <p>info@something.com</p>
             </div>
             <div>
-              <img />
+              <img src={telephone} />
               <div>
                 <p>=91777778976(India)</p>
                 <p>=91777778976(France)</p>
@@ -73,11 +81,36 @@ export default function Login() {
           </div>
         </div>
         <div>
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <a
+            href="https://www.flaticon.com/free-icons/facebook"
+            title="facebook icons"
+          >
+            <img src={facebook} alt="" />
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/instagram"
+            title="instagram icons"
+          >
+            <img src={instagram} alt="" />
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/twitter-social-badge"
+            title="twitter social badge icons"
+          >
+            <img src={twitter} alt="" />
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/linkedin"
+            title="linkedin icons"
+          >
+            <img src={linkedin} alt="" />
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/youtube"
+            title="youtube icons"
+          >
+            <img src={youtube} alt="" />
+          </a>
         </div>
         <div>
           <p>Home</p>
