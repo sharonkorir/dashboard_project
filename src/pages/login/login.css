@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: aqua;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav p {
+  padding-right: 10px;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  /* width: 100%; */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.card {
+  width: 300px;
+  margin: auto;
+  background-color: whitesmoke;
+  height: fit-content;
+  border-radius: 1rem;
+}
+
+.hero {
+  width: 100%;
+}
