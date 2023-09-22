@@ -70,11 +70,19 @@ export default function Login() {
           style={{
             display: "flex",
             padding: "20px",
-            justifyContent: "space-between",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "100px",
           }}
         >
-          <div style={{ width: "50%", paddingLeft: "40px" }}>
-            <h2 style={{ paddingLeft: "20px" }}>Get in Touch with us!</h2>
+          <div
+            style={{
+              flex: 1,
+              maxWidth: "600px",
+            }}
+          >
+            <h2>Get in Touch with us!</h2>
             <div className="footer-section">
               <img src={pin} />
               <p>
