@@ -68,9 +68,10 @@ form {
   background-color: whitesmoke;
   color: black;
   height: fit-content;
-  border-radius: 1rem;
-  padding: 20px;
-  margin-right: 40px;
+  border-radius: 0.25rem;
+
+  flex: 1;
+  max-width: 300px;
 }
 
 .card {
@@ -167,7 +168,7 @@ label {
 
 .footer-section {
   display: flex;
-  padding: 20px;
+  padding: 20px 0 0;
   gap: 20px;
 }
 
