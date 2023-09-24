@@ -4,13 +4,13 @@ import React from "react";
 const Navbar = () => {
   return (
     <Flex as={"nav"} shadow={"md"} gap={"0.25rem"}>
-      <HStack bg={"blackAlpha.800"} p={"1rem"}>
+      <HStack bg={"blackAlpha.800"} p={{ base: "0.25rem", md: "1rem" }}>
         <Heading color={"gray.200"} size={"md"}>
           PUY INFOTECH
         </Heading>
         {/* <Avatar /> */}
       </HStack>
-      <HStack spacing="2rem" p={"1rem"}>
+      <HStack p={{ base: "0.25rem", md: "1rem" }}>
         <Text>Home</Text>
         <Text>About</Text>
         <Text>Contact</Text>
