@@ -17,7 +17,20 @@ import { DarkButton } from "../components/DarkButton";
 
 export default function SignUp() {
   const theme = useTheme();
-  // const InputGroup = ({ label, placeholder }) => {};
+  const InputGroup = ({ label1, placeholder1, label2, placeholder2 }) => {
+    return (
+      <Flex gap={5} width={"100%"} direction={{ base: "column", md: "row" }}>
+        <Box flex="1">
+          <Text>{label1}</Text>
+          <Input variant={"filled"} placeholder={placeholder1} />
+        </Box>
+        <Box flex="1">
+          <Text>{label2}</Text>
+          <Input variant={"filled"} placeholder={placeholder2} />
+        </Box>
+      </Flex>
+    );
+  };
 
   return (
     <Flex flexWrap={{ base: "wrap", md: "nowrap" }} gap={{ lg: "6rem" }}>
@@ -117,63 +130,24 @@ export default function SignUp() {
               ></Select>
             </Box>
           </Flex>
-          <Flex
-            gap={5}
-            width={"100%"}
-            direction={{ base: "column", md: "row" }}
-          >
-            <Box flex="1">
-              <Text>City</Text>
-              <Input variant={"filled"} placeholder={"Enter your City here"} />
-            </Box>
-            <Box flex="1">
-              <Text>Pincode</Text>
-              <Input
-                variant={"filled"}
-                placeholder={"Enter your Pincode here"}
-              />
-            </Box>
-          </Flex>
-          <Flex
-            gap={5}
-            width={"100%"}
-            direction={{ base: "column", md: "row" }}
-          >
-            <Box flex="1">
-              <Text>E-mail Address</Text>
-              <Input
-                variant={"filled"}
-                placeholder={"Enter your E-mail Address here"}
-              />
-            </Box>
-            <Box flex="1">
-              <Text>Contact Number</Text>
-              <Input
-                variant={"filled"}
-                placeholder={"Enter your Contact Number here"}
-              />
-            </Box>
-          </Flex>
-          <Flex
-            gap={5}
-            width={"100%"}
-            direction={{ base: "column", md: "row" }}
-          >
-            <Box flex="1">
-              <Text>Password</Text>
-              <Input
-                variant={"filled"}
-                placeholder={"Enter your Password here"}
-              />
-            </Box>
-            <Box flex="1">
-              <Text>Confirm Password</Text>
-              <Input
-                variant={"filled"}
-                placeholder={"Confirm your Password here"}
-              />
-            </Box>
-          </Flex>
+          <InputGroup
+            label1="City"
+            placeholder1="Enter your City here"
+            label2="Pincode"
+            placeholder2="Enter your Pincode here"
+          />
+          <InputGroup
+            label1="E-mail Address"
+            placeholder1="Enter your E-mail Address here"
+            label2="Contact Number"
+            placeholder2="Enter your Contact Number here"
+          />
+          <InputGroup
+            label1="Password"
+            placeholder1="Enter your Password here"
+            label2="Confirm Password"
+            placeholder2="Confirm your Password here"
+          />
         </VStack>
         <Box
           textAlign={{ base: "center", lg: "left" }}
