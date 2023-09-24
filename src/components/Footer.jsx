@@ -20,16 +20,12 @@ import {
   FaLinkedin,
   FaYoutube,
 } from "react-icons/fa6";
+import { DarkButton } from "./DarkButton";
 
 const Footer = () => {
   return (
-    <Box
-      bg={"blackAlpha.800"}
-      as={"footer"}
-      alignItems="center"
-      color={"gray.200"}
-    >
-      <SimpleGrid minChildWidth="16rem" spacing="2.5rem" mt="2.5rem" p={"2rem"}>
+    <Box bg={"blackAlpha.800"} alignItems="center" color={"gray.200"}>
+      <SimpleGrid minChildWidth="16rem" spacing="2.5rem" p={"2rem"}>
         <Box height="auto" margin={"2rem"}>
           <Flex gap={"1rem"} marginBottom={"2rem"}>
             <PhoneIcon />
@@ -62,7 +58,8 @@ const Footer = () => {
               </Stack>
             </CardBody>
             <CardFooter>
-              <Button width={"100%"}>Subcribe</Button>
+              {/* <Button width={"100%"}>Subcribe</Button> */}
+              <DarkButton text={"Subscribe"} width={"100%"} />
             </CardFooter>
           </Card>
         </Box>
