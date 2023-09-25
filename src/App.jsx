@@ -1,6 +1,7 @@
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Purchase from "./pages/Purchase";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/login/Login";
 
@@ -10,7 +11,8 @@ function App() {
     <>
 
       <Navbar />
-      <SignUp />
+      {/* <SignUp /> */}
+      <Purchase />
       <Footer />{" "}
 
       <Login />
