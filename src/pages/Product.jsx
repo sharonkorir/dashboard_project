@@ -10,25 +10,20 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import PhoneTable from "../components/PhoneTable";
-import { PieChart } from "../components/charts/PieChart";
-import { LineChart } from "../components/charts/LineChart";
-import { SearchIcon } from "@chakra-ui/icons";
+import { AddIcon, SearchIcon } from "@chakra-ui/icons";
+import BarChart from "../components/charts/BarChart";
 
-export default function Purchase() {
+export default function Product() {
   const theme = useTheme();
-
   return (
     <Box bg={theme.colors.bg.grey} p={"1rem"}>
       <Box m={"0.5rem"}>
-        <Text>Dashboard/ Purchase</Text>
-      </Box>
-      <Box bg={"white"} m={"0.5rem"} mb={"2rem"} p={"0.75rem"}>
-        <LineChart />
+        <Text>Dashboard/ Products</Text>
       </Box>
       <Flex direction={{ base: "column", md: "row" }}>
         <Box flex={0.7} bg={"white"} p={"1rem"} m={"0.5rem"}>
           <Text fontSize="lg" mb={"1rem"}>
-            Purchase
+            Products
           </Text>
           <InputGroup>
             <Input placeholder="Search" />
@@ -36,20 +31,30 @@ export default function Purchase() {
               <SearchIcon />
             </InputRightElement>
           </InputGroup>
+          <Flex justifyContent={"space-evenly"} my={"1rem"}>
+            <ButtonGroup>
+              <Button colorScheme="teal">Active</Button>
+              <Button variant={"ghost"} colorScheme="red">
+                Inactive
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup spacing={0}>
+              <Button colorScheme="teal" rightIcon={<AddIcon />}>
+                Add New Prouct
+              </Button>
+              <Button colorScheme="messenger" rightIcon={<AddIcon />}>
+                Add Supplier
+              </Button>
+            </ButtonGroup>
+          </Flex>
 
-          <ButtonGroup spacing="6" my={"0.5rem"}>
-            <Button colorScheme="teal">Received</Button>
-            <Button variant={"ghost"} colorScheme="red">
-              Not Received
-            </Button>
-          </ButtonGroup>
           <PhoneTable />
         </Box>
         <Box flex={0.3} bg={"white"} p={"1rem"} m={"0.5rem"}>
           <Text fontSize="lg" mb={"1rem"}>
-            Purchases Overview
+            Products Overview
           </Text>
-          <PieChart />
+          <BarChart />
         </Box>
       </Flex>
     </Box>
