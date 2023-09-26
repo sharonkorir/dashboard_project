@@ -54,6 +54,7 @@ export default function Product() {
           <Text fontSize="lg" mb={"1rem"}>
             Products Overview
           </Text>
+
           <BarChart />
         </Box>
       </Flex>
