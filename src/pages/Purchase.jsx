@@ -14,6 +14,7 @@ import {
   ButtonGroup,
 } from "@chakra-ui/react";
 import PhoneTable from "../components/PhoneTable";
+import { PieChart } from "../components/PieChart";
 
 export default function Purchase() {
   const theme = useTheme();
@@ -23,10 +24,10 @@ export default function Purchase() {
       <Text>Dashboard/ Purchase</Text>
       <Box>Box 1</Box>
       <Flex direction={{ base: "column", md: "row" }}>
-        <Box flex={0.75} bg={"white"} p={"1rem"}>
+        <Box flex={0.75} bg={"white"} p={"1rem"} mx={"0.5rem"}>
           <Text>Purchase</Text>
           <Input placeholder="Search" />
-          <ButtonGroup spacing="6">
+          <ButtonGroup spacing="6" my={"0.5rem"}>
             <Button colorScheme="teal">Received</Button>
             <Button variant={"ghost"} colorScheme="red">
               Not Received
@@ -34,8 +35,9 @@ export default function Purchase() {
           </ButtonGroup>
           <PhoneTable />
         </Box>
-        <Box bg={"yellow"} flex={"0.25"}>
-          <Box>box 2</Box>
+        <Box flex={"0.25"} bg={"white"} p={"1rem"}>
+          <Text>Purchases Overview</Text>
+          <PieChart />
         </Box>
       </Flex>
     </Box>
