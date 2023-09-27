@@ -24,28 +24,24 @@ import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 const ProductsTable = () => {
   const data = useMemo(() => productData, []);
   //   console.log(productData, "product data");
+  const columnHelper = createColumnHelper();
 
   const columns = [
     { header: "Product Name", accessorKey: "name" },
     { header: "Manufacturer", accessorKey: "manufacturer" },
     { header: "Supplier", accessorKey: "supplier" },
-    {
-      Header: "Edit",
-      accessorKey: "edit",
-      Cell: ({ cell }) => (
-        <IconButton
-          aria-label="Edit product"
-          icon={<EditIcon />}
-          onClick={() => handleEdit(cell.row.original)}
-        />
-      ),
-    },
-    {
+
+    columnHelper.display({
+      header: "Edit",
+      id: "actions",
+      cell: (props) => <EditIcon row={props.row} />,
+    }),
+
+    columnHelper.display({
       header: "Delete",
-      Cell: (object, _unused) => {
-        return <EditIcon onUpdate={onUpdateStatus} object={object} />;
-      },
-    },
+      //   id: "actions",
+      cell: (props) => <DeleteIcon row={props.row} />,
+    }),
   ];
   const table = useReactTable({
     data,
