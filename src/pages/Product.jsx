@@ -12,6 +12,7 @@ import {
 import PhoneTable from "../components/PhoneTable";
 import { AddIcon, SearchIcon } from "@chakra-ui/icons";
 import BarChart from "../components/charts/BarChart";
+import ProductsTable from "../components/tables/ProductsTable";
 
 export default function Product() {
   const theme = useTheme();
@@ -62,7 +63,7 @@ export default function Product() {
             </ButtonGroup>
           </Flex>
 
-          <PhoneTable />
+          <ProductsTable />
         </Box>
         <Box flex={0.3} bg={"white"} p={"1rem"} m={"0.5rem"}>
           <Text fontSize="lg" mb={"1rem"}>
