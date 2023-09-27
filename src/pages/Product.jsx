@@ -32,17 +32,31 @@ export default function Product() {
             </InputRightElement>
           </InputGroup>
           <Flex justifyContent={"space-evenly"} my={"1rem"}>
-            <ButtonGroup>
-              <Button colorScheme="teal">Active</Button>
-              <Button variant={"ghost"} colorScheme="red">
+            <ButtonGroup spacing={0}>
+              <Button colorScheme="teal" borderRightRadius={"0px"}>
+                Active
+              </Button>
+              <Button
+                variant={"ghost"}
+                colorScheme="red"
+                borderLeftRadius={"0px"}
+              >
                 Inactive
               </Button>
             </ButtonGroup>
             <ButtonGroup spacing={0}>
-              <Button colorScheme="teal" rightIcon={<AddIcon />}>
+              <Button
+                colorScheme="teal"
+                rightIcon={<AddIcon />}
+                borderRightRadius={"0px"}
+              >
                 Add New Prouct
               </Button>
-              <Button colorScheme="messenger" rightIcon={<AddIcon />}>
+              <Button
+                colorScheme="messenger"
+                rightIcon={<AddIcon />}
+                borderLeftRadius={"0px"}
+              >
                 Add Supplier
               </Button>
             </ButtonGroup>
