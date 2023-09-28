@@ -9,7 +9,6 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import PhoneTable from "../components/PhoneTable";
 import { AddIcon, SearchIcon } from "@chakra-ui/icons";
 import BarChart from "../components/charts/BarChart";
 import ProductsTable from "../components/tables/ProductsTable";

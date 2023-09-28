@@ -9,7 +9,7 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import PhoneTable from "../components/PhoneTable";
+import PhoneTable from "../components/tables/PhoneTable";
 import { PieChart } from "../components/charts/PieChart";
 import { LineChart } from "../components/charts/LineChart";
 import { SearchIcon } from "@chakra-ui/icons";
