@@ -32,7 +32,12 @@ export default function Product() {
               <SearchIcon />
             </InputRightElement>
           </InputGroup>
-          <Flex justifyContent={"space-evenly"} my={"1rem"}>
+          <Flex
+            justifyContent={"space-evenly"}
+            my={"1rem"}
+            direction={{ base: "column", lg: "row" }}
+            gap={{ base: "0.5rem", lg: "0rem" }}
+          >
             <ButtonGroup spacing={0}>
               <Button colorScheme="teal" borderRightRadius={"0px"}>
                 Active
