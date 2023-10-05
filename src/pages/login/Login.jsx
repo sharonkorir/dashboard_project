@@ -1,4 +1,3 @@
-import React from "react";
 import "./login.css";
 import facebook from "../../assets/facebook.png";
 import instagram from "../../assets/instagram.png";
@@ -13,39 +12,36 @@ import google from "../../assets/google.png";
 
 export default function Login() {
   return (
-    <div className="container">
+    <div>
       <nav className="nav">
         <div className="flex">
           <div className=" center logo-box">
             <div className="center">
-              <p className="link">PYO INFOTECH</p>
+              <p className="link">PUY INFOTECH</p>
             </div>
-            <img src={logo} />
+            <div className="center">
+              <img src={logo} />
+            </div>
           </div>
-          <div className="center">
-            <p className="link">Home</p>
-            <p className="link">About</p>
-            <p className="link">Login</p>
+          <div className="center nav-link">
+            <a className="link">Home</a>
+            <a className="link">About</a>
+            <a className="link">Contact</a>
           </div>
         </div>
         <div className="center">
-          <p className="link">LOGOUT</p>
+          <a className="link">LOG IN</a>
         </div>
       </nav>
       <div className="hero">
         <div className="card">
-          <div
-            style={{
-              color: "white",
-              textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <div className="flex-center">
             <div>
-              <p className="link">PYO INFOTECH</p>
+              <p className="hero-logo">PUY INFOTECH</p>
             </div>
-            <img src={logo} />
+            <div className="center">
+              <img src={logo} />
+            </div>
           </div>
           <form>
             <button className="google">
@@ -54,34 +50,33 @@ export default function Login() {
                 <p>Sign in with Google</p>
               </div>
             </button>
-            <label>Email</label>
-            <input placeholder="email" required />
-            <label>Password</label>
-            <input placeholder="password" required />
+            <p className="header">
+              <span>or</span>
+            </p>
+            <label>
+              Email <span className="red">*</span>
+            </label>
+            <input placeholder="Email" required />
+            <div className="flex-between">
+              <label>
+                Password <span className="red">*</span>
+              </label>
+              <label>
+                <a className="blue">Forgot password?</a>
+              </label>
+            </div>
+
+            <input placeholder="Password" required />
             <button className="login-button">SIGN IN</button>
             <p className="center">
-              Not a member yet? <span className="blue"> Resgister now!</span>
+              Not a member yet? <a className="blue"> Register now!</a>
             </p>
           </form>
         </div>
       </div>
       <footer>
-        <div
-          style={{
-            display: "flex",
-            padding: "20px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "100px",
-          }}
-        >
-          <div
-            style={{
-              flex: 1,
-              maxWidth: "600px",
-            }}
-          >
+        <div className="footer-body">
+          <div className="flex-1">
             <h2>Get in Touch with us!</h2>
             <div className="footer-section">
               <img src={pin} />
@@ -92,7 +87,7 @@ export default function Login() {
             </div>
             <div className="footer-section">
               <img src={mail} />
-              <p>info@something.com</p>
+              <p>info@msquaretec.com</p>
             </div>
             <div className="footer-section">
               <img src={telephone} />
@@ -125,10 +120,10 @@ export default function Login() {
           <img src={youtube} alt="" />
         </div>
         <div className="footer-links">
-          <p>Home</p>
-          <p>About</p>
-          <p>Contact</p>
-          <p>Login</p>
+          <a>Home</a>
+          <a>About</a>
+          <a>Contact</a>
+          <a>Login</a>
         </div>
       </footer>
     </div>
