@@ -2,159 +2,195 @@ import {
   Box,
   useTheme,
   Text,
-  Highlight,
   Button,
-  Icon,
   VStack,
   Input,
   Divider,
   AbsoluteCenter,
   Flex,
   Select,
+  FormControl,
+  FormLabel,
+  SimpleGrid,
+  Image,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { DarkButton } from "../components/DarkButton";
+import illustration from "../assets/illustration.png";
 
 export default function SignUp() {
   const theme = useTheme();
-  const InputGroup = ({ label1, placeholder1, label2, placeholder2 }) => {
-    return (
-      <Flex gap={5} width={"100%"} direction={{ base: "column", md: "row" }}>
-        <Box flex="1">
-          <Text>{label1}</Text>
-          <Input variant={"filled"} placeholder={placeholder1} />
-        </Box>
-        <Box flex="1">
-          <Text>{label2}</Text>
-          <Input variant={"filled"} placeholder={placeholder2} />
-        </Box>
-      </Flex>
-    );
-  };
+
+  const nameList = [
+    { id: 1, name: "First Name", placeholder: "Enter your First Name here" },
+    { id: 2, name: "Last Name", placeholder: "Enter your Last Name here" },
+    {
+      id: 3,
+      name: "Company Name",
+      placeholder: "Enter your Company Name here",
+    },
+  ];
+
+  const addressList = [
+    { id: 1, name: "Address Line 1", placeholder: "Enter your Address here" },
+    { id: 2, name: "Address Line 2", placeholder: "Enter your Address here" },
+  ];
+
+  const addressList2 = [
+    { id: 1, name: "Country", placeholder: "Select your country" },
+    { id: 2, name: "State", placeholder: "Select your state" },
+  ];
+
+  const contactList = [
+    { id: 1, name: "City", placeholder: "Enter your City here" },
+    { id: 2, name: "Pincode", placeholder: "Enter your Pincode here" },
+    { id: 3, name: "Email", placeholder: "Enter your Email here" },
+    {
+      id: 4,
+      name: "Contact Number",
+      placeholder: "Enter your Contact Number here",
+    },
+    { id: 5, name: "Password", placeholder: "Enter your Password here" },
+    {
+      id: 6,
+      name: "Confirm Password",
+      placeholder: "Confirm your Password here",
+    },
+  ];
 
   return (
     <Flex flexWrap={{ base: "wrap", md: "nowrap" }} gap={{ lg: "6rem" }}>
       <Box
         bg={theme.colors.bg.black}
-        w={{ base: "100%", md: "30%", lg: "20%" }}
-        color={theme.colors.bg.grey}
-        p={{ base: "1.5rem", md: "3rem 1.5rem 1.5rem 1.5rem" }}
+        w={{ base: "100%", md: "30%", lg: "25%" }}
+        color="white"
+        p={{ base: "1.5rem", md: "3rem 2rem 2rem 2rem" }}
         h="auto"
+        position="relative"
       >
-        <Text fontSize="xl">Manage your inventory with Puy Infotech!</Text>
+        <Text fontSize="xl" fontWeight="bold">
+          Manage your inventory with Puy Infotech!
+        </Text>
+
+        <Image
+          src={illustration}
+          boxSize="20rem"
+          objectFit="contain"
+          position="absolute"
+          bottom="20"
+          left="26.5%"
+          w="auto"
+          display={{ base: "none", md: "block" }}
+        />
       </Box>
       <Box
         h="auto"
-        w={{ base: "100%", md: "70%", lg: "80%" }}
+        w={{ base: "100%", md: "70%", lg: "75%" }}
         p={{ base: "1.5rem", md: "6rem" }}
       >
-        <Box textAlign={{ base: "center", md: "right" }}>
-          <Highlight
-            query="Sign in now!"
-            styles={{ color: theme.colors.bg.blue }}
-          >
-            Already have an account? Sign in now!
-          </Highlight>
-        </Box>
-        <DarkButton text="Sign up with Google" icon={FcGoogle} width={"100%"} />
-        <Box position="relative" padding="10">
+        <Flex
+          textAlign={{ base: "center", md: "right" }}
+          mb="1.25rem"
+          gap={1}
+          justifyContent={{ base: "center", md: "flex-end" }}
+        >
+          <Text>Already have an account?</Text>{" "}
+          <Text as="button" color={theme.colors.bg.blue}>
+            Sign in now!
+          </Text>
+        </Flex>
+        <DarkButton text="Sign up with Google" icon={FcGoogle} width="100%" />
+        <Box position="relative" py="8">
           <Divider />
-          <AbsoluteCenter bg="white" px="4">
+          <AbsoluteCenter bg="white" px="6">
             or
           </AbsoluteCenter>
         </Box>
-        <VStack spacing={8}>
-          <Flex
-            gap={5}
-            width={"100%"}
-            direction={{ base: "column", md: "row" }}
-          >
-            <Box flex={"1"}>
-              <Text mb="8px">First Name</Text>
-
-              <Input
-                variant={"filled"}
-                placeholder="Enter your First Name here"
-                required
-              />
-            </Box>
-            <Box flex={"1"}>
-              <Text mb="8px">Last Name</Text>
-
-              <Input
-                variant={"filled"}
-                placeholder="Enter your Last Name here"
-                required
-              />
-            </Box>
-            <Box flex={"1"}>
-              <Text mb="8px">Company Name</Text>
-
-              <Input
-                variant={"filled"}
-                placeholder="Enter your Company Name here"
-                required
-              />
-            </Box>
+        <VStack spacing={6}>
+          <Flex gap={5} width="100%" direction={{ base: "column", md: "row" }}>
+            {nameList.map((input) => {
+              return (
+                <Box flex="1" key={input.id}>
+                  <FormControl isRequired>
+                    <FormLabel>{input.name}</FormLabel>
+                    <Input
+                      placeholder={input.placeholder}
+                      backgroundColor={theme.colors.bg.lightGrey}
+                      _placeholder={{ color: theme.colors.text.grey }}
+                    />
+                  </FormControl>
+                </Box>
+              );
+            })}
           </Flex>
-          <VStack spacing={4} align="stretch" width={"100%"}>
-            <Box>
-              <Text>Address Line 1</Text>
-              <Input variant={"filled"} placeholder="Enter your Address here" />
-            </Box>
-            <Box>
-              <Text>Address Line 2</Text>
-              <Input variant={"filled"} placeholder="Enter your Address here" />
-            </Box>
+          <VStack spacing={6} align="stretch" width="100%">
+            {addressList.map((input) => {
+              return (
+                <Box flex="1" key={input.id}>
+                  <FormControl isRequired>
+                    <FormLabel>{input.name}</FormLabel>
+                    <Input
+                      placeholder={input.placeholder}
+                      backgroundColor={theme.colors.bg.lightGrey}
+                      _placeholder={{ color: theme.colors.text.grey }}
+                    />
+                  </FormControl>
+                </Box>
+              );
+            })}
           </VStack>
 
           <Flex
-            gap={5}
-            width={"100%"}
+            width="100%"
             direction={{ base: "column", md: "row" }}
+            gap={5}
+            mb={5}
           >
-            <Box flex="1">
-              <Text>Country</Text>
-              <Select
-                placeholder="Select your country"
-                variant={"filled"}
-                width={{ base: "100%", md: "50%" }}
-              ></Select>
-            </Box>
-            <Box flex="1">
-              <Text>State</Text>
-              <Select
-                placeholder="Select your state"
-                variant={"filled"}
-                width={{ base: "100%", lg: "50%" }}
-              ></Select>
-            </Box>
+            {addressList2.map((input) => {
+              return (
+                <Box flex="1" key={input.id}>
+                  <FormControl isRequired>
+                    <FormLabel>{input.name}</FormLabel>
+                    <Select
+                      placeholder={input.placeholder}
+                      backgroundColor={theme.colors.bg.lightGrey}
+                      _placeholder={{ color: theme.colors.text.grey }}
+                      width={{ base: "100%", md: "50%" }}
+                    ></Select>
+                  </FormControl>
+                </Box>
+              );
+            })}
           </Flex>
-          <InputGroup
-            label1="City"
-            placeholder1="Enter your City here"
-            label2="Pincode"
-            placeholder2="Enter your Pincode here"
-          />
-          <InputGroup
-            label1="E-mail Address"
-            placeholder1="Enter your E-mail Address here"
-            label2="Contact Number"
-            placeholder2="Enter your Contact Number here"
-          />
-          <InputGroup
-            label1="Password"
-            placeholder1="Enter your Password here"
-            label2="Confirm Password"
-            placeholder2="Confirm your Password here"
-          />
         </VStack>
+        <SimpleGrid columns={2} spacing={5}>
+          {contactList.map((input) => {
+            return (
+              <Box flex="1" key={input.id}>
+                <FormControl isRequired>
+                  <FormLabel>{input.name}</FormLabel>
+                  <Input
+                    placeholder={input.placeholder}
+                    backgroundColor={theme.colors.bg.lightGrey}
+                    _placeholder={{ color: theme.colors.text.grey }}
+                  />
+                </FormControl>
+              </Box>
+            );
+          })}
+        </SimpleGrid>
         <Box
           textAlign={{ base: "center", lg: "left" }}
           mt="2rem"
           mx={{ base: "auto", lg: "0" }}
         >
-          <Button colorScheme="teal" px={{ base: "2rem", md: "4rem" }}>
+          <Button
+            colorScheme="button"
+            p={{
+              base: "0.5rem 2rem 0.5rem 2rem",
+              md: "1.25rem 4rem 1.25rem 4rem",
+            }}
+          >
             REGISTER
           </Button>
         </Box>

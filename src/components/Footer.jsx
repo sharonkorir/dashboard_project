@@ -3,95 +3,134 @@ import {
   Flex,
   Text,
   Box,
-  Button,
   SimpleGrid,
   Card,
   CardBody,
   Stack,
-  CardFooter,
   Heading,
   Input,
+  useTheme,
 } from "@chakra-ui/react";
-import { PhoneIcon, EmailIcon, WarningIcon } from "@chakra-ui/icons";
+import { PhoneIcon, EmailIcon } from "@chakra-ui/icons";
 import {
   FaFacebook,
   FaInstagram,
   FaTwitter,
   FaLinkedin,
   FaYoutube,
+  FaLocationDot,
 } from "react-icons/fa6";
 import { DarkButton } from "./DarkButton";
 
 const Footer = () => {
+  const theme = useTheme();
+
+  const footerLinks = [
+    { id: 1, name: "Home" },
+    { id: 2, name: "About" },
+    { id: 3, name: "Contact" },
+    { id: 4, name: "Login" },
+  ];
+
+  const footerIcons = [
+    { id: 1, icon: <FaFacebook /> },
+    { id: 2, icon: <FaInstagram /> },
+    { id: 3, icon: <FaTwitter /> },
+    { id: 4, icon: <FaLinkedin /> },
+    { id: 5, icon: <FaYoutube /> },
+  ];
+
+  const contactList = [
+    { id: 1, contact: "+91 7490044775(India)" },
+    { id: 2, contact: "+33 769951365(France)" },
+    { id: 3, contact: "+1(703) 220-7958(Canada)" },
+  ];
+
   return (
-    <Box bg={"blackAlpha.800"} alignItems="center" color={"gray.200"}>
-      <SimpleGrid minChildWidth="16rem" spacing="2.5rem" p={"2rem"}>
-        <Box height="auto" margin={"2rem"}>
-          <Flex gap={"1rem"} marginBottom={"2rem"}>
+    <Box
+      bg={theme.colors.bg.black}
+      alignItems="center"
+      color={theme.colors.bg.grey}
+    >
+      <SimpleGrid minChildWidth="16rem" spacing="2.5rem" p="2rem">
+        <Box height="auto" margin={{ base: "auto", lg: "2rem 0rem 0rem 4rem" }}>
+          <Flex gap="1rem" marginBottom="2rem">
             <PhoneIcon />
             <Text>
               2nd Floor, Tridev Complex, above Rathi X Ray & Sonography Clinic,
               Udhana Darwaja, Surat, Gujarat 395002
             </Text>
           </Flex>
-          <Flex gap={"1rem"} marginBottom={"2rem"}>
+          <Flex gap="1rem" marginBottom="2rem">
             <EmailIcon />
             <Text>info@msquaretec.com</Text>
           </Flex>
-          <Flex gap={"1rem"}>
-            <PhoneIcon />
+          <Flex gap="1rem">
+            <FaLocationDot />
             <Stack>
-              <Text>+91 7490044775(India)</Text>
-              <Text>+33 769951365(France)</Text>
-              <Text>+1(703) 220-7958(Canada)</Text>
+              {contactList.map((contact) => {
+                return <Text key={contact.id}>{contact.contact}</Text>;
+              })}
             </Stack>
           </Flex>
         </Box>
-        <Box height="auto" as="center" margin={"2rem"}>
-          <Card maxW="sm">
+        <Box
+          height="auto"
+          margin={{ base: "auto", lg: "2rem 4rem 0rem auto" }}
+          width="fit-content"
+        >
+          <Card maxW="sm" padding="1rem">
             <CardBody>
-              <Stack mt="6" spacing="3">
-                <Heading size="md">Subscribe to our Newsletter</Heading>
+              <Stack mb="1.5rem">
+                <Heading size="md" fontWeight="medium">
+                  Subscribe to our Newsletter
+                </Heading>
 
-                <Text color="gray.500">Enter your email address here!</Text>
-                <Input placeholder="Email Address" variant="filled"></Input>
+                <Text color={theme.colors.text.grey} fontSize="md" mt="1rem">
+                  Enter your email address here!
+                </Text>
+                <Input
+                  placeholder="Email Address"
+                  variant="filled"
+                  backgroundColor={theme.colors.bg.lightGrey}
+                  _placeholder={{ color: theme.colors.text.grey }}
+                ></Input>
               </Stack>
+              <DarkButton text="Subscribe" width="100%" />
             </CardBody>
-            <CardFooter>
-              {/* <Button width={"100%"}>Subcribe</Button> */}
-              <DarkButton text={"Subscribe"} width={"100%"} />
-            </CardFooter>
           </Card>
         </Box>
       </SimpleGrid>
-      {/* <Spacer /> */}
       <Flex
         gap={{ base: "2rem", md: "4rem", lg: "8rem" }}
         as="center"
-        alignItems={"center"}
-        justifyContent={"center"}
-        p={"2rem"}
+        alignItems="center"
+        justifyContent="center"
+        p="2rem"
       >
-        <FaFacebook />
-        <FaInstagram />
-        <FaTwitter />
-        <FaLinkedin />
-        <FaYoutube />
-        {/* <Spacer /> */}
+        {" "}
+        {footerIcons.map((icon) => {
+          return (
+            <Box key={icon.id} as="button">
+              {icon.icon}
+            </Box>
+          );
+        })}
       </Flex>
       <Flex
-        // gap={"14rem"}
         gap={{ base: "2rem", md: "7rem", lg: "14rem" }}
         as="center"
-        alignItems={"center"}
-        justifyContent={"center"}
-        p={"2rem"}
+        alignItems="center"
+        justifyContent="center"
+        p="2rem"
       >
-        <Text>Home</Text>
-        <Text>About</Text>
-        <Text>Contact</Text>
-        <Text>Login</Text>
-        {/* <Spacer /> */}
+        {footerLinks.map((link) => {
+          return (
+            <Text as="button" key={link.id}>
+              {link.name}
+            </Text>
+          );
+        })}
       </Flex>
     </Box>
   );
